@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "net_core_3_windows_services": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
