@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.IO;
 
 namespace net_core_3_windows_services
 {
@@ -21,7 +22,8 @@ namespace net_core_3_windows_services
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                File.AppendAllText("/var/AppLogs/netcoreservice.log",
+                    $"Worker running at: {DateTimeOffset.Now}{Environment.NewLine}");
                 await Task.Delay(1000, stoppingToken);
             }
         }
